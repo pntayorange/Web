@@ -1,0 +1,342 @@
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #000033; /* 000033 */ 
+    overflow: hidden;
+    font-family: 'Poppins', sans-serif;
+}
+/*
+.sky {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255,255,255,0.8) 1px, rgba(0,0,51,0) 1px);
+    background-size: 20px 20px;
+}*/
+.sky {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000033; /* Night sky background */
+    overflow: hidden;
+}
+
+/* Star styles */
+.star {
+    position: absolute;
+    background-color: white;
+    border-radius: 50%;
+    box-shadow: 0 0 10px white;
+}
+
+.moon {
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 150px;
+    background-color: #f0e68c;
+    border-radius: 50%;
+    box-shadow: 0 0 50px 20px #f0e68c; /* Glow effect */
+    animation: pulse 15s infinite, hyperbolicMove 60s cubic-bezier(0.25, 0.1, 0.25, 1) infinite; /* Apply both animations */
+}
+
+.lantern-container {
+    position: absolute;
+    top: 250px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around; /* Space out lanterns evenly */
+    flex-wrap: wrap; /* Allow lanterns to wrap to the next line */
+    /* height: 100vh; */ /* Uncomment if you want the container to occupy the full viewport height */
+    /* justify-content: center; */ /* Uncomment if you want lanterns to be centered horizontally */
+}
+
+/*
+.lantern {
+    width: 60px;
+    height: 100px;
+    background-color: #ff4500;
+    border-radius: 50% 50% 0 0;
+    box-shadow: 0 0 20px #ff4500;
+    position: relative;
+}*/
+.lantern {
+    position: relative;
+    width: 110px;
+    height: 190px;
+    background-color: #f7c6c7; /* Light color for lantern */
+    border-radius: 50% 50% 0 0;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.5); /* Glow effect */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+    animation: floatLantern 5s infinite ease-in-out;
+    background: radial-gradient(circle, #ffcc00 60%, #ff9900 100%);
+    border-radius: 30px; /* Rounded corners */
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.7); /* Glow effect */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    margin: 20px;
+}
+
+/* Lantern frame */
+.lantern-frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 3px solid #ff9900; /* Frame color */
+    border-radius: 30px; /* Rounded corners */
+    box-sizing: border-box;
+    pointer-events: none; /* Allow clicks to pass through */
+}
+
+
+/* Lantern body */
+.lantern-body {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 15px 0;
+    background: linear-gradient(circle, #ff6347 30%, #f7c6c7 30%);
+    background: radial-gradient(circle, #ffcc00 60%, #ff9900 100%);
+    border-radius: 30px; /* Rounded corners */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+/* Lantern body */
+
+/* Lantern stripes */
+.stripe {
+    width: 60%;
+    height: 6px;
+    background-color: #cc0000;
+    margin: 5px 0;
+    border-radius: 3px;
+}
+
+/* Tassel */
+
+.lantern:before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 5px;
+    height: 20px;
+    background-color: #ff4500;
+}
+
+.lantern:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 5px;
+    background-color: #fff;
+}
+/*
+.motifs {
+    position: absolute;
+    top: 10%;
+    width: 100%;
+    text-align: center;
+    color: #ffcc00;
+}
+
+
+ */
+/* Decorative stripes */
+.stripes {
+    width: 50%;
+    top: -10px;
+    height: 10px;
+    background-color: #cc0000;
+    margin: -65px 0;
+    border-radius: 5px;
+}
+
+.tassels {
+    position: absolute;
+    bottom: -68px; /* Adjust based on the size of the tassels */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 50px;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-around;
+    z-index: 0;
+}
+/*
+.tassel {
+    position: absolute;
+    width: 10px;
+    height: 30px;
+    background-color: #cc0000;
+    border-radius: 5px;
+}*/
+
+.tassel {
+    width: 6px; /* Adjust width for desired thickness */
+    height: 40px; /* Default length of the tassel */
+    background: linear-gradient(to bottom, #ff9900, #ffcc00); /* Gradients for variety */
+    border-radius: 2px;
+    position: relative;
+    display: inline-block;
+    animation: swing 10s ease-in-out infinite;
+    transform-origin: top center;
+}
+
+
+
+.tassel:nth-child(1) { height: 40px; background: #ff9900; } /* Yellow */
+.tassel:nth-child(2) { height: 50px; background: linear-gradient(to bottom, #ff9900, #ffcc11);  } /* Slightly darker yellow */
+.tassel:nth-child(3) { height: 40px; background: #ff9900; } /* Yellow */
+.tassel:nth-child(4) { height: 50px; background: linear-gradient(to bottom, #ff9900, #ffcc11);  } /* Slightly darker yellow */
+/*.tassel:nth-child(5) { height: 40px; background: #ff9900; } /* Yellow */
+.tassel:nth-child(5) { height: 50px; background: linear-gradient(to bottom, #ff9900, #ffcc11);  } /* Slightly darker yellow */
+.tassel:nth-child(6) { height: 40px; background: #ff9900; } /* Yellow */
+.tassel:nth-child(7) { height: 50px; background: linear-gradient(to bottom, #ff9900, #ffcc11);  } /* Slightly darker yellow */
+.tassel:nth-child(8) { height: 40px; background: #ff9900; } /* Yellow */
+
+
+
+.handle {
+    position: absolute;
+    top: -40px;
+    width: 60px;
+    height: 20px;
+    background-color: #ffcc00;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.main-text {
+    position: absolute;
+    bottom: 100px;
+    width: 100%;
+    text-align: center;
+    font-family: 'Pacifico', cursive;
+    color: #ffffff;
+    font-size: 100px;
+    text-shadow: 1px 1px 10px #fffafa;
+    animation: textmainBounce 30s infinite; /* Apply animation */
+}
+.message {
+    position: absolute;
+    top: 165px; /* Position below the main text */
+    left: 50%;
+    text-align: center;
+    transform: translateX(-50%);
+    width: 100%;
+    font-size: 4.5rem; /* Adjust the font size */
+    color: #ffffff; /* Golden color for festive feel */
+    font-family: 'Dancing Script', cursive; /* Use the new font */
+    font-weight: 700;
+    text-shadow: 3px 3px 10px rgba(255, 255, 255, 0.8);
+    
+    animation: messageBounce 10s infinite; /* Apply animation */
+}
+
+@keyframes floatLantern {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-30px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+@keyframes swing {
+    0% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(-7deg);
+    }
+    50% {
+        transform: rotate(0deg);
+    }
+    75% {
+        transform: rotate(7deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 50px 20px #f0e68c;
+        transform: scale(1);
+    }
+    50% {
+        box-shadow: 0 0 70px 30px #f0e68c;
+        transform: scale(1.05);
+    }
+    100% {
+        box-shadow: 0 0 50px 20px #f0e68c;
+        transform: scale(1);
+    }
+}
+
+@keyframes hyperbolicMove {
+    0% {
+        left: 0%;
+        transform: translateX(-50%) translateY(0) scale(0.8);
+    }
+    50% {
+        left: 50%;
+        transform: translateX(0) translateY(-100px) scale(1.5); /* Moves up and scales */
+    }
+    100% {
+        left: 100%;
+        transform: translateX(50%) translateY(0) scale(0.8);
+    }
+}
+@keyframes textmainBounce {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+@keyframes messageBounce {
+    0% {
+        transform: translateX(-50%) translateY(0);
+    }
+    50% {
+        transform: translateX(-50%) translateY(-10px);
+    }
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+/*//////////////////////////////////////////////////////////////*/
+

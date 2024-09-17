@@ -1,0 +1,127 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #1a1a1a;
+    margin: 0;
+}
+
+.lantern-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lantern {
+    position: relative;
+    width: 150px; /* Adjust size as needed */
+    height: 300px; /* Adjust size as needed */
+}
+
+.lantern-body {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #ffcc00; /* Base color of the lantern body */
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(255, 165, 0, 0.5);
+    overflow: hidden;
+    /* Create a rectangular prism effect */
+    perspective: 1000px;
+    /* Add horizontal stripes to simulate folds */
+    background-image: repeating-linear-gradient(
+        to bottom,
+        #ffcc00 0%,
+        #ffcc00 10%,
+        #f5b800 10%,
+        #f5b800 20%
+    );
+    background-size: 100% 20px;
+}
+
+.folds {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 0, 0.3) 0%,
+        rgba(255, 255, 0, 0.3) 10%,
+        rgba(255, 255, 0, 0.1) 10%,
+        rgba(255, 255, 0, 0.1) 20%
+    );
+    background-size: 100% 20px;
+    background-repeat: repeat-y;
+    /* Adding horizontal stripes to simulate folds */
+    background-image: repeating-linear-gradient(
+        to bottom,
+        rgba(255, 255, 0, 0.3) 0%,
+        rgba(255, 255, 0, 0.3) 10%,
+        rgba(255, 255, 0, 0.1) 10%,
+        rgba(255, 255, 0, 0.1) 20%
+    );
+}
+
+.handle {
+    position: absolute;
+    top: -30px; /* Adjust if necessary */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 20px;
+    background: #ff5733;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.handle:before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #ff5733;
+    transform: translateX(-50%);
+}
+
+/* Tassels */
+.tassels {
+    position: absolute;
+    bottom: -30px; /* Adjust based on the size of the tassels */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 30px;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-around;
+}
+
+.tassel {
+    width: 10px; /* Adjust width for desired thickness */
+    height: 30px; /* Length of the tassel */
+    background: linear-gradient(to bottom, #ff5733, #ffcc00);
+    border-radius: 5px;
+}
+
+.tassel:nth-child(1) { background: linear-gradient(to bottom, #ff5733, #ffcc00); }
+.tassel:nth-child(2) { background: linear-gradient(to bottom, #ffcc00, #f5b800); }
+.tassel:nth-child(3) { background: linear-gradient(to bottom, #f5b800, #ff5733); }
+.tassel:nth-child(4) { background: linear-gradient(to bottom, #ff5733, #ffcc00); }
+.tassel:nth-child(5) { background: linear-gradient(to bottom, #ffcc00, #f5b800); }
+
+.lantern-light {
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 30px;
+    background: radial-gradient(circle, rgba(255, 255, 0, 0.8), rgba(255, 255, 0, 0));
+    border-radius: 50%;
+    box-shadow: 0 0 20px rgba(255, 255, 0, 0.7);
+}

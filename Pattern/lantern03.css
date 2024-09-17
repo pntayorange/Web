@@ -1,0 +1,92 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #1a1a1a;
+    margin: 0;
+}
+
+.lantern-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.lantern {
+    position: relative;
+    width: 150px;
+    height: 200px;
+}
+
+.lantern-frame {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50% 50% 20% 20%;
+    border: 2px solid #8c8c8c;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.lantern-body {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, #ffcc00, #ff9900);
+    border-radius: 50% 50% 20% 20%;
+    overflow: hidden;
+    box-shadow: 0 0 15px rgba(255, 165, 0, 0.5);
+    /* Add paper fold effects */
+    background: linear-gradient(45deg, #ffcc00 25%, transparent 25%, transparent 50%, #ffcc00 50%, #ffcc00 75%, transparent 75%, transparent) 0 0,
+                linear-gradient(-45deg, #ff9900 25%, transparent 25%, transparent 50%, #ff9900 50%, #ff9900 75%, transparent 75%, transparent) 0 0,
+                radial-gradient(circle, #ffcc00, #ff9900);
+    background-size: 10px 10px, 10px 10px, cover;
+}
+
+.pattern {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    right: 10%;
+    bottom: 20%;
+    border-radius: 50%;
+    background: url('path/to/pattern.png') no-repeat center center;
+    background-size: cover;
+}
+
+.tassel {
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 30px;
+    background: #ff5733;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.handle {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 20px;
+    background: #ff5733;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.handle:before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #ff5733;
+    transform: translateX(-50%);
+}

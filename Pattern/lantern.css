@@ -1,0 +1,225 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #000033; /* Dark night sky */
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+}
+
+/* Sky container */
+.sky {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000033;
+}
+
+/* Lantern container */
+.lantern-container {
+    position: absolute;
+    bottom: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Ensure multiple lanterns wrap if needed */
+}
+
+/* Lantern styles */
+.lantern {
+    position: relative;
+    width: 90px;
+    height: 150px;
+    background: radial-gradient(circle, #ffcc00 60%, #ff9900 100%);
+    border-radius: 30px; /* Rounded corners */
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.7); /* Glow effect */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+    padding: 10px;
+}
+
+/* Lantern body */
+.lantern-body {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, #ffcc00 60%, #ff9900 100%);
+    border-radius: 30px; /* Rounded corners */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Motifs and Patterns */
+.motifs {
+    position: absolute;
+    top: 10%;
+    width: 100%;
+    text-align: center;
+    color: #ffcc00;
+}
+
+
+/* Decorative stripes */
+.stripes {
+    width: 60%;
+    height: 6px;
+    background-color: #cc0000;
+    margin: 10px 0;
+    border-radius: 3px;
+}
+
+/* Tassel */
+.tassel {
+    position: absolute;
+    bottom: -30px;
+    width: 12px;
+    height: 40px;
+    background-color: #cc0000;
+    border-radius: 6px;
+}
+
+/* Handle */
+.handle {
+    position: absolute;
+    top: -20px;
+    width: 60px;
+    height: 20px;
+    background-color: #ffcc00;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Floating animation */
+@keyframes floatLantern {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+
+/* Lantern container */
+.lantern-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-wrap: wrap; /* Allow wrapping for multiple lanterns */
+}
+
+/* Lantern styles */
+.lantern {
+    position: relative;
+    width: 120px;
+    height: 200px;
+    background: radial-gradient(circle, #ffcc00 60%, #ff9900 100%);
+    border-radius: 30px; /* Rounded corners */
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.7); /* Glow effect */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    margin: 20px;
+}
+
+/* Lantern frame */
+.lantern-frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 3px solid #ff9900; /* Frame color */
+    border-radius: 30px; /* Rounded corners */
+    box-sizing: border-box;
+    pointer-events: none; /* Allow clicks to pass through */
+}
+
+/* Lantern body */
+.lantern-body {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, #ffcc00 60%, #ff9900 100%);
+    border-radius: 30px; /* Rounded corners */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Motifs and Patterns */
+.motifs {
+    position: absolute;
+    top: 10%;
+    width: 100%;
+    text-align: center;
+    color: #ffcc00;
+}
+
+/* Decorative stripes */
+.stripes {
+    width: 50%;
+    top: -10px;
+    height: 10px;
+    background-color: #cc0000;
+    margin: -65px 0;
+    border-radius: 5px;
+}
+
+/* Tassel */
+.tassels {
+    position: absolute;
+    bottom: -68px; /* Adjust based on the size of the tassels */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 50px;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-around;
+    z-index: 0;
+}
+.tassel {
+    width: 6px; /* Adjust width for desired thickness */
+    height: 40px; /* Default length of the tassel */
+    background: linear-gradient(to bottom, #ff9900, #ffcc00); /* Gradients for variety */
+    border-radius: 2px;
+    position: relative;
+}
+.tassel:nth-child(1) { height: 40px; background: #ff9900; } /* Yellow */
+.tassel:nth-child(2) { height: 50px; background: linear-gradient(to bottom, #ff9900, #ffcc11);  } /* Slightly darker yellow */
+.tassel:nth-child(3) { height: 40px; background: #ff9900; } /* Yellow */
+.tassel:nth-child(4) { height: 50px; background: linear-gradient(to bottom, #ff9900, #ffcc11);  } /* Slightly darker yellow */
+/*.tassel:nth-child(5) { height: 40px; background: #ff9900; } /* Yellow */
+.tassel:nth-child(5) { height: 50px; background: linear-gradient(to bottom, #ff9900, #ffcc11);  } /* Slightly darker yellow */
+.tassel:nth-child(6) { height: 40px; background: #ff9900; } /* Yellow */
+.tassel:nth-child(7) { height: 50px; background: linear-gradient(to bottom, #ff9900, #ffcc11);  } /* Slightly darker yellow */
+.tassel:nth-child(8) { height: 40px; background: #ff9900; } /* Yellow */
+
+/* Handle */
+.handle {
+    position: absolute;
+    top: -40px;
+    width: 60px;
+    height: 20px;
+    background-color: #ffcc00;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
