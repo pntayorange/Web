@@ -1,0 +1,151 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000000e3;
+    color: #333;
+    text-align: center;
+    padding: 50px;
+    margin: 0;
+    position: relative;
+    font-family: 'Montserrat', sans-serif;
+    overflow: hidden;
+}
+
+.container {
+    background-color: #b3dbff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+}
+
+.header {
+    font-size: 36px;
+    color: #011d51;
+    margin-bottom: 10px;
+    font-weight: 900; /* Độ dày chữ hợp lệ */
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+.message {
+    font-size: 18px;
+    margin-bottom: 10px;
+    font-weight: 400;
+}
+
+.footer {
+    font-size: 18px;
+    color: #555;
+}
+
+.cake-container {
+    background-color: #b3dbff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    position: absolute;
+    top: 150%; /* Move it down by 50% of the parent’s height */
+    left: 50%; /* Move it right by 50% of the parent’s width */
+    transform: translate(-50%, -50%); /* Center it relative to its own dimensions */
+    width: 300px;
+    height: 5px;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    z-index: 1;
+}
+
+.cake {
+    width: 150px;
+    height: 80px;
+    top: -75px;
+    background-color: #4caf50; /* Green color for the cake */
+    border-radius: 10px 10px 0 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    border: 5px solid #388e3c; /* Darker green border */
+    position: relative; /* Position relative to allow absolute positioning of candles */
+}
+
+
+.candle {
+    position: absolute;
+    width: 10px;
+    height: 30px;
+    background-color: #f44336; /* Red color for the candles */
+    border-radius: 5px;
+    top: -35px; /* Position candles above the cake */
+     /* Position candles horizontally */
+   
+}
+
+.candle:nth-child(1) { left: 10%; }
+.candle:nth-child(2) { left: 30%; }
+.candle:nth-child(3) { left: 50%; }
+.candle:nth-child(4) { left: 70%; }
+.candle:nth-child(5) { left: 90%; }
+
+
+.candle:before {
+    content: "";
+    position: absolute;
+    width: 6px;
+    height: 10px;
+    background-color: #ffeb3b; /* Yellow color for candle flames */
+    border-radius: 50%;
+    top: -15px; /* Position flames above the candles */
+}
+
+#fireworks {
+    position: absolute;
+    top: 200px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.firework {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    opacity: 1;
+    background-color: #ff6f61; /* Default color, can be overridden by JavaScript */
+    transform-origin: center;
+    animation: explode 5s forwards;
+}
+
+@keyframes explode {
+    0% {
+        transform: scale(0) translateY(0) translateX(0);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1) translateY(-150px); /* Adjust spread as needed */
+        opacity: 0;
+    }
+}
+
+/* Different directions using rotation */
+.firework:nth-child(1) {
+    animation: explode 5s forwards;
+    transform: rotate(0deg);
+}
+
+.firework:nth-child(2) {
+    animation: explode 5s forwards;
+    transform: rotate(90deg);
+}
+
+.firework:nth-child(3) {
+    animation: explode 5s forwards;
+    transform: rotate(180deg);
+}
+
+.firework:nth-child(4) {
+    animation: explode 5s forwards;
+    transform: rotate(270deg);
+}
